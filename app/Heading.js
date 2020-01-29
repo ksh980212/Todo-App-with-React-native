@@ -4,12 +4,13 @@ import {View, Text, StyleSheet} from 'react-native';
 const Heading = () => {
 
     return(
-        <View style={styles.header}>
-            <Text style={styles.headerText}>
+        <View style = {styles.header}>
+            <Text style = {styles.headerText}>
                 Record
             </Text>
         </View>
     );
+    
 }
 
 const styles = StyleSheet.create({

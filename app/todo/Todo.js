@@ -3,22 +3,24 @@ import {View, StyleSheet, Text} from 'react-native';
 import TodoButton from './TodoButton';
 
 const Todo = ({todo, toggleComplete, deleteTodo}) => {
+
     return(
         <View style = {styles.todoContainer}>
-            <Text style={styles.todoText}>
+            <Text style = {styles.todoText}>
                 {todo.title}
             </Text>
-            <View style={styles.buttons}>
+            <View style = {styles.buttons}>
                 <TodoButton 
-                    complete ={todo.complete}
-                    onPress= {() => {toggleComplete(todo.todoIndex)}}
-                    name="Done" />
+                    complete = {todo.complete}
+                    onPress = {() => {toggleComplete(todo.todoIndex)}}
+                    name = "Done" />
                 <TodoButton 
-                    onPress= {() => {deleteTodo(todo.todoIndex)}}
-                    name="Delete" />
+                    onPress = {() => {deleteTodo(todo.todoIndex)}}
+                    name = "Delete" />
             </View>
         </View>
     );
+    
 }
 
 const styles = StyleSheet.create({

@@ -4,13 +4,13 @@ import {View, TextInput, StyleSheet} from 'react-native';
 const Input = ({inputValue, inputChange}) => {
 
     return(
-        <View style={styles.inputContainer}>
+        <View style = {styles.inputContainer}>
             <TextInput
-                value={inputValue}
-                onChangeText={inputChange}
-                style={styles.input}
-                placeholderTextColor="#CACACA"
-                placeholder="todo" />
+                value = {inputValue}
+                onChangeText = {inputChange}
+                style = {styles.input}
+                placeholderTextColor = "#CACACA"
+                placeholder = "todo" />
         </View>
     );
 

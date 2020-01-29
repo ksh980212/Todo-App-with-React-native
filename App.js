@@ -4,17 +4,16 @@ import Heading from './app/Heading';
 import Input from './app/Input';
 import Button from './app/Button';
 import TodoList from './app/todo/TodoList';
+import TabBar from './app/tabbar/TabBar';
 
 let todoIndex = 0;
 
 class App extends Component{
 
-  constructor() {
-    super();
-    this.state = {
-      inputValue: '',
-      todos: []
-    }
+  state = {
+    inputValue: '',
+    todos: [],
+    type: 'All'
   }
 
   inputChange = (inputValue) => {
@@ -47,7 +46,7 @@ class App extends Component{
         todo.complete = !todo.complete;
       }
     })
-    this.setState({todos})
+    this.setState({todos});
   }
   
   deleteTodo = (todoIndex) => {
@@ -55,29 +54,37 @@ class App extends Component{
     todos = todos.filter(todo => {
       todo.todoIndex !== todoIndex
     })
-    this.setState({todos})
+    this.setState({todos});
+  }
+
+  setType= (type) => {
+    this.setState({type});
   }
 
   render() {
 
-    const {inputValue, todos} = this.state;
+    const {inputValue, todos, type} = this.state;
 
     return (
-      <View style={styles.container}>
+      <View style = {styles.container}>
         <ScrollView 
-          keyboardShouldPersistTaps="always"
-          style={styles.content}>
+          keyboardShouldPersistTaps = "always"
+          style = {styles.content}>
           <Heading />
           <Input 
-            inputvalue={inputValue}
-            inputChange={(text) => this.inputChange(text)} />
+            inputvalue = {inputValue}
+            inputChange = {(text) => this.inputChange(text)} />
           <TodoList 
-            deleteTodo={this.deleteTodo}
-            toggleComplete={this.toggleComplete}
-            todos={todos} />
+            type = {type}
+            deleteTodo = {this.deleteTodo}
+            toggleComplete = {this.toggleComplete}
+            todos = {todos} />
           <Button 
-            submitTodo={this.submitTodo}/>
+            submitTodo = {this.submitTodo}/>
         </ScrollView>
+        <TabBar 
+          type = {type}
+          setType = {this.setType} />
       </View>
     );
   }

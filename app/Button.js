@@ -4,17 +4,18 @@ import {View, Text, StyleSheet, TouchableHighlight} from 'react-native';
 const Button = ({submitTodo}) => {
     
     return(
-        <View style={styles.buttonContainer}>
+        <View style = {styles.buttonContainer}>
             <TouchableHighlight
-                style={styles.button}
+                style = {styles.button}
                 underlayColor = "#efefef"
-                onPress={submitTodo} >
-                <Text style={styles.buttonText}>
+                onPress = {submitTodo} >
+                <Text style = {styles.buttonText}>
                     Save
                 </Text>
             </TouchableHighlight>
         </View>
     );
+    
 }
 
 const styles = StyleSheet.create({
